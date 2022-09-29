@@ -1,0 +1,95 @@
+@import "var";
+@import 'mixins';
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font: $fonts;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $GrayishBlue;
+    font-size: 12px;
+    &:not(:last-child) {
+        margin-right: 31px;
+    }
+
+    &:hover {
+        padding-bottom: 40px;
+        border-bottom: 4px solid $limeGreen;
+    }
+}
+
+h1 {
+    color: $DarkBlue;
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-top: 0px;
+    margin-bottom: 28px;
+
+    @include breakpoints-up(large) {
+      font-size: 40px;
+    }
+  }
+
+p {
+  color: $GrayishBlue;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 19px;
+
+  @include breakpoints-up(large) {
+    font-size: 18px;
+  }
+}
+
+h2 {
+  color: $DarkBlue;
+  margin-top: 0px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 165px;
+    padding-left: 165px;
+}
+
+button, .button {
+    padding: 16px 32px;
+    border-radius: 2rem;
+    border: none;
+    color: $White;
+    font-size: 12px;
+    background: $bgPrimary;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+// visibility
+.hide-for-mobile {
+    @include breakpoints-down(medium){
+        display: none;
+    }
+}
+
+.hide-for-desktop{
+    @include breakpoints-up(medium){
+        display: none;
+    }
+}
